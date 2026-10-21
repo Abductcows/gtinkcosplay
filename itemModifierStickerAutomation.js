@@ -1,4 +1,4 @@
-// automates png generation from https://fontspool.com/font-generator/terraria
+// https://fontspool.com/font-generator/terraria
 
 const textsToPrint = [
     "Legendary",
@@ -111,8 +111,10 @@ function getGoBackFromFinalDownloadButton() {
 
 function getRandomStartColor() {
     let color = "";
-    for (let i = 0; i < 6; i++) {
-        color = color + Math.floor(Math.random() * 16).toString(16);
+    for (let i = 0; i < 3; i++) {
+        const offset = i === 0 ? 55 : 33
+        const twoDigits = offset + Math.floor(Math.random() * (255 - offset))
+        color = color + twoDigits.toString(16);
     }
     return "#" + color;
 }
